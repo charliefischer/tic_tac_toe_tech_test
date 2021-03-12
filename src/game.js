@@ -7,8 +7,8 @@ class Game {
     this.#swapPlayer()
     this.#isSpaceAvailable(place)
     this.#makePlayersMove(place)
-    if(this.fields[0] === 'X' && this.fields[1] === 'X' && this.fields[2] === 'X') {
-      return 'Player 1 wins'
+    if(this.#horizontalWin()){
+      throw 'Player 1 wins'
     }
     this.#isGameOver()
   }
@@ -36,6 +36,12 @@ class Game {
     if(this.#count >= 9){
       throw 'Game Over'
     }
+  }
+
+  #horizontalWin(){
+    return (this.fields[0] === 'X' && this.fields[1] === 'X' && this.fields[2] === 'X') ||
+          (this.fields[3] === 'X' && this.fields[4] === 'X' && this.fields[5] === 'X') ||
+          (this.fields[6] === 'X' && this.fields[7] === 'X' && this.fields[8] === 'X')
   }
 }
 

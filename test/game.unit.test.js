@@ -44,6 +44,9 @@ describe('Game', () => {
     game.move(4)
     game.move(2)
     game.move(5)
-    expect(game.move(3)).toEqual('Player 1 wins')
+    console.log(game.fields)
+    expect(() => {
+      game.move(3)
+    }).toThrow('Player 1 wins')
   })
 })
