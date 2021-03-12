@@ -6,8 +6,10 @@ class Game {
   move(place){
     this.#swapPlayer()
     this.#isSpaceAvailable(place)
-
     this.#makePlayersMove(place)
+    if(this.count >= 9){
+      throw 'Game Over'
+    }
   }
 
   #makePlayersMove(place){

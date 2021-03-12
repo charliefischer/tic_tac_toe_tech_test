@@ -29,4 +29,14 @@ describe('Game', () => {
     game.move(2)
     expect(game.fields).toEqual(['X', 'O', '', '', '', '', '', '', ''])
   })
+
+  test('The game ends when all 9 fields are filled', () => {
+    for(let i = 1; i < game.fields.length; i++){
+      game.move(i)
+    }
+  
+    expect(() => {
+      game.move(9)
+    }).toThrow('Game Over')
+  })
 })
