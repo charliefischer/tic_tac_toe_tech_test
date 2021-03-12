@@ -38,4 +38,12 @@ describe('Game', () => {
       game.move(9)
     }).toThrow('Game Over')
   })
+
+  test('You can win with horizontals', () => {
+    game.move(1)
+    game.move(4)
+    game.move(2)
+    game.move(5)
+    expect(game.move(3)).toEqual('Player 1 wins')
+  })
 })

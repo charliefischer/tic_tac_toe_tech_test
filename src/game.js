@@ -7,6 +7,9 @@ class Game {
     this.#swapPlayer()
     this.#isSpaceAvailable(place)
     this.#makePlayersMove(place)
+    if(this.fields[0] === 'X' && this.fields[1] === 'X' && this.fields[2] === 'X') {
+      return 'Player 1 wins'
+    }
     this.#isGameOver()
   }
 
