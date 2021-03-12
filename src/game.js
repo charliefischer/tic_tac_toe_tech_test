@@ -45,7 +45,8 @@ class Game {
   }
 
   #diagonalWin(){
-    return (this.fields[0] === 'X' && this.fields[4] === 'X' && this.fields[8] === 'X')
+    return (this.fields[0] === 'X' && this.fields[4] === 'X' && this.fields[8] === 'X') ||
+           (this.fields[2] === 'X' && this.fields[4] === 'X' && this.fields[6] === 'X')
 
   }
 }
