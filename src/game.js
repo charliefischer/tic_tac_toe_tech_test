@@ -7,9 +7,7 @@ class Game {
     this.#swapPlayer()
     this.#isSpaceAvailable(place)
     this.#makePlayersMove(place)
-    if(this.#horizontalWin() || this.#diagonalWin() || this.#verticalWin()){
-      throw 'Player 1 wins'
-    }
+    this.#isThereAWinner()
     this.#isGameOver()
   }
 
@@ -29,6 +27,12 @@ class Game {
   #isSpaceAvailable(place){
     if(this.fields[place - 1] !== '') {
       throw 'Field already taken'
+    }
+  }
+
+  #isThereAWinner(){
+    if(this.#horizontalWin() || this.#diagonalWin() || this.#verticalWin()){
+      throw 'Player 1 wins'
     }
   }
 
