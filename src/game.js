@@ -32,8 +32,12 @@ class Game {
 
   #isThereAWinner(){
     if(this.#horizontalWin() || this.#diagonalWin() || this.#verticalWin()){
-      throw 'Player 1 wins'
+      throw `Player ${this.#winningPlayer()} wins`
     }
+  }
+
+  #winningPlayer(){
+    return this.#count % 2 === 0 ? 2 : 1
   }
 
   #isGameOver(){
