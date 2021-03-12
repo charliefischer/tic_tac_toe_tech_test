@@ -5,10 +5,8 @@ class Game {
 
   move(place){
     this.#swapPlayer()
+    this.#isSpaceAvailable(place)
 
-    if(this.fields[place - 1] !== '') {
-      throw 'Field already taken'
-    }
     this.fields[place - 1] = this.turn
     this.count++
   }
@@ -18,6 +16,12 @@ class Game {
       this.turn = 'X'
     } else {
       this.turn = 'O'
+    }
+  }
+
+  #isSpaceAvailable(place){
+    if(this.fields[place - 1] !== '') {
+      throw 'Field already taken'
     }
   }
 }
