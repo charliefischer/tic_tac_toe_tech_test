@@ -23,4 +23,10 @@ describe('Game', () => {
       game.move(1)
     }).toThrow('Field already taken')
   })
+
+  test('Turns swap after each go', () => {
+    game.move(1)
+    game.move(2)
+    expect(game.fields).toEqual(['X', 'O', '', '', '', '', '', '', ''])
+  })
 })
