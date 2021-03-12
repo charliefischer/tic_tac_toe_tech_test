@@ -31,13 +31,14 @@ describe('Game', () => {
   })
 
   test('The game ends when all 9 fields are filled', () => {
-    for(let i = 1; i < 5; i++){
-      game.move(i)
-    }
-    game.move(6)
-    game.move(5)
-    game.move(8)
+    game.move(1)
+    game.move(2)
+    game.move(4)
     game.move(7)
+    game.move(8)
+    game.move(5)
+    game.move(3)
+    game.move(6)
     expect(() => {
       game.move(9)
     }).toThrow('Game Over')
@@ -60,6 +61,16 @@ describe('Game', () => {
     game.move(2)
     expect(() => {
       game.move(9)
+    }).toThrow('Player 1 wins')
+  })
+
+  test('You can win with verticals', () => {
+    game.move(1)
+    game.move(2)
+    game.move(4)
+    game.move(5)
+    expect(() => {
+      game.move(7)
     }).toThrow('Player 1 wins')
   })
 })
