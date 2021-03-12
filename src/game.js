@@ -7,7 +7,7 @@ class Game {
     this.#swapPlayer()
     this.#isSpaceAvailable(place)
     this.#makePlayersMove(place)
-    if(this.#horizontalWin()){
+    if(this.#horizontalWin() || this.#diagonalWin()){
       throw 'Player 1 wins'
     }
     this.#isGameOver()
@@ -40,8 +40,13 @@ class Game {
 
   #horizontalWin(){
     return (this.fields[0] === 'X' && this.fields[1] === 'X' && this.fields[2] === 'X') ||
-          (this.fields[3] === 'X' && this.fields[4] === 'X' && this.fields[5] === 'X') ||
-          (this.fields[6] === 'X' && this.fields[7] === 'X' && this.fields[8] === 'X')
+           (this.fields[3] === 'X' && this.fields[4] === 'X' && this.fields[5] === 'X') ||
+           (this.fields[6] === 'X' && this.fields[7] === 'X' && this.fields[8] === 'X')
+  }
+
+  #diagonalWin(){
+    return (this.fields[0] === 'X' && this.fields[4] === 'X' && this.fields[8] === 'X')
+
   }
 }
 

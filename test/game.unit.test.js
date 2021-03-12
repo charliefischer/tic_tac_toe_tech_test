@@ -31,9 +31,13 @@ describe('Game', () => {
   })
 
   test('The game ends when all 9 fields are filled', () => {
-    for(let i = 1; i < game.fields.length; i++){
+    for(let i = 1; i < 5; i++){
       game.move(i)
     }
+    game.move(6)
+    game.move(5)
+    game.move(8)
+    game.move(7)
     expect(() => {
       game.move(9)
     }).toThrow('Game Over')
@@ -44,9 +48,18 @@ describe('Game', () => {
     game.move(4)
     game.move(2)
     game.move(5)
-    console.log(game.fields)
     expect(() => {
       game.move(3)
+    }).toThrow('Player 1 wins')
+  })
+
+  test('You can win with diagonals', () => {
+    game.move(1)
+    game.move(4)
+    game.move(5)
+    game.move(2)
+    expect(() => {
+      game.move(9)
     }).toThrow('Player 1 wins')
   })
 })
