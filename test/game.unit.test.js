@@ -16,4 +16,11 @@ describe('Game', () => {
     game.move(4)
     expect(game.fields).toEqual(['', '', '', 'X', '', '', '', '', ''])
   })
+
+  test('you can make two moves at the same field', () => {
+    game.move(1)
+    expect(() => {
+      game.move(1)
+    }).toThrow('Field already taken')
+  })
 })
