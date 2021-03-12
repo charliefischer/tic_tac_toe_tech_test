@@ -54,3 +54,9 @@ To win would need the following:
 > 1, 5, 9
 > 3, 5, 9
 This could be implemented into a web app by each field in the array matching an id of a html element
+```
+### Midway Notes
+The functionality from the planning has been put in place but is now rather lengthy code. 
+I think it could be shortened by extracting the players out into their own classes.
+Alternatively making the move a class could let each move be a new instance that keeps a record of the field and the player
+
