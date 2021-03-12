@@ -7,6 +7,10 @@ class Game {
     this.#swapPlayer()
     this.#isSpaceAvailable(place)
 
+    this.#makePlayersMove(place)
+  }
+
+  #makePlayersMove(place){
     this.fields[place - 1] = this.turn
     this.count++
   }
