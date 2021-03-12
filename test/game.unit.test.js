@@ -34,7 +34,6 @@ describe('Game', () => {
     for(let i = 1; i < game.fields.length; i++){
       game.move(i)
     }
-  
     expect(() => {
       game.move(9)
     }).toThrow('Game Over')
